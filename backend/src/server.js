@@ -10,6 +10,7 @@ import messageRoute from "./routes/messages.js";
 dotenv.config();
 
 const port = process.env.PORT || 8060;
+const origin=process.env.ORIGIN;
 
 const app = express();
 app.use(express.json());
@@ -29,7 +30,7 @@ server.listen(port, () => {
 const io = new Server(server, {
   // Initialize socket.io with the HTTP server instance
   cors: {
-    origin: "http://localhost:5173",
+    origin:origin,
     credentials: true,
   },
 });
